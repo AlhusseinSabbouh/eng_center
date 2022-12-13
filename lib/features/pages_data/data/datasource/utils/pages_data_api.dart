@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:eng_center/core/resources/strings_manager.dart';
 import 'package:retrofit/http.dart';
+// ignore: depend_on_referenced_packages, unused_import
 import 'package:json_annotation/json_annotation.dart';
 
 part 'pages_data_api.g.dart';

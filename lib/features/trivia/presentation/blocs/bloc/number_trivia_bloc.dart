@@ -1,8 +1,10 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+
 import 'package:eng_center/core/function/int_to_string_converter.dart';
 import 'package:eng_center/features/trivia/domain/usecases/get_concrete_number_trivia.dart';
 import 'package:eng_center/features/trivia/domain/usecases/get_random_number_trivia.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../../domain/entity/trivia_entity.dart';
 

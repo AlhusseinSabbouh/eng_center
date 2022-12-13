@@ -21,7 +21,7 @@ class _AppTriviaServiceClient implements AppTriviaServiceClient {
   String? baseUrl;
 
   @override
-  Future<TriviaResponse> getConserteNumberTrivia(id) async {
+  Future<TriviaResponse>? getConserteNumberTrivia(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -44,7 +44,7 @@ class _AppTriviaServiceClient implements AppTriviaServiceClient {
   }
 
   @override
-  Future<TriviaResponse> getRandomNumberTrivia() async {
+  Future<TriviaResponse>? getRandomNumberTrivia() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

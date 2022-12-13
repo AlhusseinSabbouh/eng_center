@@ -51,66 +51,44 @@ Failure _handleError(DioError error) {
 // ! here we need to add all error source that can face us
 // ! and we can throw it as Execption
 enum DataSourceError implements Exception {
-  success,
-  noContent,
-  badRequest,
-  forbidden,
-  unAuthorised,
-  notFound,
-  internalServerError,
-  connectTimeout,
-  cancel,
-  receiveTimeout,
-  sendTimeout,
-  cacheError,
-  noInterntConnection,
-  serverError,
-  cachedError,
-  invalidInput,
-  other
+  success(Failure(ResponseCode.success, "")),
+  noContent(Failure(ResponseCode.noContent, "")),
+  badRequest(Failure(ResponseCode.badRequest, "")),
+  forbidden(Failure(ResponseCode.badRequest, "")),
+  unAuthorised(Failure(ResponseCode.unAuthorised, "")),
+  notFound(Failure(ResponseCode.notFound, "")),
+  internalServerError(Failure(ResponseCode.internalServerError, "")),
+  connectTimeout(Failure(ResponseCode.connectTimeout, "")),
+  cancel(Failure(ResponseCode.cancel, "")),
+  receiveTimeout(Failure(ResponseCode.receiveTimeout, "")),
+  sendTimeout(Failure(ResponseCode.sendTimeout, "")),
+  cacheError(Failure(ResponseCode.cacheError, "")),
+  noInterntConnection(Failure(ResponseCode.noInterntConnection, "")),
+  serverError(Failure(ResponseCode.serverError, "")),
+  cachedError(Failure(ResponseCode.cachedError, "")),
+  invalidInput(Failure(ResponseCode.invalidInput, "error input")),
+  other(Failure(ResponseCode.other, ""));
+
+  final Failure failure;
+  const DataSourceError(this.failure);
+  Failure getFailure() => failure;
 }
 
-extension DataSourceExtension on DataSourceError {
-  Failure getFailure() {
-    switch (this) {
-      case DataSourceError.success:
-        return Failure(ResponseCode.success, "");
-      case DataSourceError.noContent:
-        return Failure(ResponseCode.noContent, "");
-      case DataSourceError.badRequest:
-        return Failure(ResponseCode.badRequest, "");
-      case DataSourceError.forbidden:
-        return Failure(ResponseCode.forbidden, "");
-      case DataSourceError.unAuthorised:
-        return Failure(ResponseCode.unAuthorised, "");
-      case DataSourceError.notFound:
-        return Failure(ResponseCode.notFound, "");
-      case DataSourceError.internalServerError:
-        return Failure(ResponseCode.internalServerError, "");
-      case DataSourceError.connectTimeout:
-        return Failure(ResponseCode.connectTimeout, "");
-      case DataSourceError.cancel:
-        return Failure(ResponseCode.cancel, "");
-      case DataSourceError.receiveTimeout:
-        return Failure(ResponseCode.receiveTimeout, "");
-      case DataSourceError.sendTimeout:
-        return Failure(ResponseCode.sendTimeout, "");
-      case DataSourceError.cacheError:
-        return Failure(ResponseCode.cacheError, "");
-      case DataSourceError.noInterntConnection:
-        return Failure(ResponseCode.noInterntConnection, "");
-      case DataSourceError.other:
-        return Failure(ResponseCode.other, "");
-
-      case DataSourceError.serverError:
-        return Failure(ResponseCode.serverError, "");
-      case DataSourceError.cachedError:
-        return Failure(ResponseCode.cachedError, "");
-      case DataSourceError.invalidInput:
-        return Failure(ResponseCode.invalidInput, "error input");
-    }
-  }
-}
+// extension DataSourceExtension on DataSourceError {
+//   Failure getFailure() {
+//     switch (this) {
+//       case DataSourceError.success:
+//         return Failure(ResponseCode.success, "");
+//       case DataSourceError.noContent:
+//         return Failure(ResponseCode.noContent, "");
+//       case DataSourceError.badRequest:
+//         return Failure(ResponseCode.badRequest, "");
+//       case DataSourceError.forbidden:
+//         return Failure(ResponseCode.forbidden, "");
+//       case DataSourceError.unAuthorised:
+//     }
+//   }
+// }
 
 class ResponseCode {
   static const int success = 200; // success with data
@@ -164,13 +142,13 @@ class ApiInternalStatus {
   static const int failue = 1;
 }
 
+// ignore: must_be_immutable
 class Failure extends Equatable {
-  int code; // 200, 201, 400, 303..500 and so on
-  String message; // error , success
+  final int code; // 200, 201, 400, 303..500 and so on
+  final String message; // error , success
 
-  Failure(this.code, this.message);
+  const Failure(this.code, this.message);
 
   @override
-  // TODO: implement props
   List<Object?> get props => [code, message];
 }

@@ -16,15 +16,16 @@ void main() {
   GetConcreteNumberTrivia usecase =
       GetConcreteNumberTrivia(mockNumberTriviaRepository);
 
-  final tNumber = 1;
-  final tNumberTrivia = NumberTrivia(number: 1, text: 'test');
+  // ignore: unused_local_variable
+  const tNumber = 1;
+  const tNumberTrivia = NumberTrivia(number: 1, text: 'test');
 
   test(
     'should get trivia for the number from the repository',
     () async {
       // arrange
       when(mockNumberTriviaRepository.getConcreteNumberTrivia(1))
-          .thenAnswer((_) async => Right(tNumberTrivia));
+          .thenAnswer((_) async => const Right(tNumberTrivia));
       when(mockNumberTriviaRepository.getConcreteNumberTrivia(2)).thenAnswer(
           (_) async => Left(DataSourceError.cacheError.getFailure()));
       // act
@@ -32,7 +33,7 @@ void main() {
       final result2 = await usecase(GetConcreteNumberTriviaInput(number: 2));
       // print(result2);
       // assert
-      expect(result, Right(tNumberTrivia));
+      expect(result, const Right(tNumberTrivia));
       expect(result2, Left(DataSourceError.cacheError.getFailure()));
       // verify(mockNumberTriviaRepository.getConcreteNumberTrivia(2));
       // verifyNoMoreInteractions(mockNumberTriviaRepository);

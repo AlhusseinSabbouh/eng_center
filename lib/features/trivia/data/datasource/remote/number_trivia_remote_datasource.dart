@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'package:dartz/dartz.dart';
 import 'package:eng_center/features/trivia/data/models/model/number_trivia_model.dart';
 
@@ -18,6 +19,7 @@ abstract class TriviaRemoteDataSource implements TriviaBaseDataSource {
 
 class NumberTriviaRemoteDataSourceImp
     implements TriviaRemoteDataSource, TriviaBaseDataSource {
+  @override
   final AppTriviaServiceClient appTriviaServiceClient;
   NumberTriviaRemoteDataSourceImp({required this.appTriviaServiceClient});
 

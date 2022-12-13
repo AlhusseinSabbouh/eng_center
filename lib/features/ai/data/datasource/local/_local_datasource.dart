@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import '../../../../../core/error/error_handler.dart';
 import '../../../domain/entity/ai_entity.dart';
 
@@ -11,7 +13,7 @@ abstract class AiLocalDataSource {
 }
 
 class AiLocalDataSourceImpl implements AiLocalDataSource {
-  Map<String, CachedItem> cacheMap = Map();
+  Map<String, CachedItem> cacheMap = {};
   @override
   Future<Ai> getAiData() async {
     CachedItem? cachedItem = cacheMap[CACHE_AI_KEY];

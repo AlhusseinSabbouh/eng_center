@@ -1,11 +1,11 @@
-import 'dart:convert';
-
 import 'package:eng_center/core/localization/app_localization_ar.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart' as intl;
 import 'package:flutter/widgets.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_localization_en.dart';

@@ -1,7 +1,8 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:eng_center/features/trivia/data/models/model/number_trivia_model.dart';
 
 import '../../../../../core/error/error_handler.dart';
-import '../../../domain/entity/trivia_entity.dart';
 import '../base/trivia_datasource.dart';
 
 const CACHE_TRIVIA_KEY = "CACHE_TRIVIA_KEY";
@@ -16,8 +17,7 @@ abstract class TriviaLocalDataSource {
 
 class TriviaLocalDataSourceImpl
     implements TriviaLocalDataSource, TriviaBaseDataSource {
-  Map<String, CachedItem> cacheMap = Map();
-  @override
+  Map<String, CachedItem> cacheMap = {};
   Future<NumberTriviaModel> getTriviaData() async {
     CachedItem? cachedItem = cacheMap[CACHE_TRIVIA_KEY];
     if (cachedItem != null && cachedItem.isValid(CACHE_TRIVIA_INTERVAL)) {
@@ -27,7 +27,6 @@ class TriviaLocalDataSourceImpl
     }
   }
 
-  @override
   Future<void> saveTriviaToCache(NumberTriviaModel trivia) async {
     cacheMap[CACHE_TRIVIA_KEY] = CachedItem(trivia);
   }
@@ -43,6 +42,7 @@ class TriviaLocalDataSourceImpl
     if (cachedItem != null) {
       return cachedItem.data;
     }
+    return null;
   }
 }
 

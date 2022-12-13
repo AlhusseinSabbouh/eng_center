@@ -14,7 +14,7 @@ Map<String, dynamic> _$TriviaBaseResponseToJson(TriviaBaseResponse instance) =>
 
 TriviaResponse _$TriviaResponseFromJson(Map<String, dynamic> json) =>
     TriviaResponse(
-      number: (json['number'] as num).toInt(),
+      number: json['number'] as int,
       text: json['text'] as String,
     );
 

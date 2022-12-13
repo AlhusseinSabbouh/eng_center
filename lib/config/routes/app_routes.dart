@@ -29,7 +29,7 @@ class RouteGenerator {
   static Route<dynamic> unDefinedRoute() {
     return MaterialPageRoute(
         builder: (_) => Scaffold(
-              appBar: AppBar(centerTitle: true, title: Text("nothing")),
+              appBar: AppBar(centerTitle: true, title: const Text("nothing")),
             ));
   }
 }
@@ -40,7 +40,7 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("First page")),
+      appBar: AppBar(centerTitle: true, title: const Text("First page")),
     );
   }
 }

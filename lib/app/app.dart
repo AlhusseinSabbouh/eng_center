@@ -73,7 +73,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../config/routes/app_routes.dart';
-import '../core/localization/app_localization.dart';
 import '../core/localization/local_cubit/local_cubit/local_cubit.dart';
 import '../core/localization/local_cubit/local_cubit/local_state.dart';
 
@@ -86,7 +85,7 @@ class MyApp extends HookWidget {
       create: (context) => LocaleCubit(),
       child: BlocBuilder<LocaleCubit, LocaleState>(
         builder: (_, localState) {
-          return MaterialApp(
+          return const MaterialApp(
             // supportedLocales: AppLocalizations.supportedLocales,
             // localizationsDelegates: AppLocalizations.localizationsDelegates,
             // locale: localState.locale,

@@ -17,13 +17,13 @@ void main() {
     usecase = GetRandonNumberTrivia(numberTriviaRepository: repo);
   });
 
-  final tNumberTrivia = NumberTrivia(number: 1, text: 'trivia tester');
+  const tNumberTrivia = NumberTrivia(number: 1, text: 'trivia tester');
 
   test("we should get random trivia", () async {
     when(repo.getRandomNumberTrivia(NoParams()))
-        .thenAnswer((_) async => Right(tNumberTrivia));
+        .thenAnswer((_) async => const Right(tNumberTrivia));
     final result = await usecase(NoParams());
-    expect(result, Right(tNumberTrivia));
+    expect(result, const Right(tNumberTrivia));
     verify(repo.getRandomNumberTrivia(NoParams()));
   });
 }

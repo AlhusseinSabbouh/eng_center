@@ -1,4 +1,3 @@
-import 'package:eng_center/features/trivia/data/datasource/local/number_trivia_local_datasource.dart';
 import 'package:eng_center/features/trivia/data/datasource/remote/number_trivia_remote_datasource.dart';
 import 'package:eng_center/features/trivia/data/datasource/utils/trivia_api.dart';
 import 'package:eng_center/features/trivia/data/models/model/number_trivia_model.dart';

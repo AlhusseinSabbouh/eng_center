@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+// ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
 
 part 'ai_model.g.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:eng_center/config/platform/network_connection.dart';
 import 'package:eng_center/features/trivia/data/datasource/local/number_trivia_local_datasource.dart';
 import 'package:eng_center/features/trivia/domain/entity/trivia_entity.dart';
@@ -5,7 +7,6 @@ import 'package:eng_center/features/trivia/domain/entity/trivia_entity.dart';
 import 'package:eng_center/core/error/error_handler.dart';
 
 import 'package:dartz/dartz.dart';
-import 'package:eng_center/features/trivia/domain/usecases/get_random_number_trivia.dart';
 
 import '../../domain/repository/trivia_repository.dart';
 import '../datasource/remote/number_trivia_remote_datasource.dart';
@@ -50,6 +51,7 @@ class TriviaRepositoryImpl implements NumberTriviaRepository {
   }
 
   @override
+  // ignore: avoid_types_as_parameter_names
   Future<Either<Failure, NumberTrivia>>? getRandomNumberTrivia(NoParams) async {
     netWorkConnection.isConnected();
 

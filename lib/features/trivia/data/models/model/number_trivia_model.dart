@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import 'package:eng_center/features/trivia/domain/entity/trivia_entity.dart';
+// ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
 
 part 'number_trivia_model.g.dart';

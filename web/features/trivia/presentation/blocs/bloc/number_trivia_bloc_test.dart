@@ -10,7 +10,6 @@ import 'package:eng_center/features/trivia/domain/repository/trivia_repository.d
 import 'package:eng_center/features/trivia/domain/usecases/get_concrete_number_trivia.dart';
 import 'package:eng_center/features/trivia/domain/usecases/get_random_number_trivia.dart';
 import 'package:eng_center/features/trivia/presentation/blocs/bloc/number_trivia_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -36,6 +35,7 @@ void main() async {
   late GetConcreteNumberTrivia useCase;
   late GetRandonNumberTrivia useCase1;
   late LocalDataSourceMock localDataSoruce;
+  // ignore: unused_local_variable
   late NumberTriviaBloc mockBloc;
   setUp(() {
     networkConnection = NetWorkConnectionMock();
@@ -54,7 +54,7 @@ void main() async {
         getRandonNumberTriviaUsecase: useCase1);
   });
   final tNumberTriviaResponse = TriviaResponse(number: 1, text: 'test');
-  final tNumberTriviaModel = NumberTriviaModel(text: "test", number: 1);
+  const tNumberTriviaModel = NumberTriviaModel(text: "test", number: 1);
 
   blocTest<NumberTriviaBloc, NumberTriviaState>(
     "enter right number and get right response",
@@ -68,7 +68,7 @@ void main() async {
       getConcreteNumberTriviaUsecase: useCase,
       getRandonNumberTriviaUsecase: useCase1,
     ),
-    act: (bloc) => bloc.add(GetConcerteNumberTriviaEvent(number: "8")),
+    act: (bloc) => bloc.add(const GetConcerteNumberTriviaEvent(number: "8")),
     wait: const Duration(milliseconds: 300),
     expect: () => [
       isA<NumberTriviaLoading>(),
@@ -87,7 +87,7 @@ void main() async {
       getConcreteNumberTriviaUsecase: useCase,
       getRandonNumberTriviaUsecase: useCase1,
     ),
-    act: (bloc) => bloc.add(GetConcerteNumberTriviaEvent(number: "-8")),
+    act: (bloc) => bloc.add(const GetConcerteNumberTriviaEvent(number: "-8")),
     wait: const Duration(milliseconds: 300),
     expect: () => [
       isA<NumberTriviaLoading>(),
@@ -106,7 +106,7 @@ void main() async {
       getConcreteNumberTriviaUsecase: useCase,
       getRandonNumberTriviaUsecase: useCase1,
     ),
-    act: (bloc) => bloc.add(GetConcerteNumberTriviaEvent(number: "-8")),
+    act: (bloc) => bloc.add(const GetConcerteNumberTriviaEvent(number: "-8")),
     wait: const Duration(milliseconds: 300),
     expect: () => [
       isA<NumberTriviaLoading>(),
@@ -125,7 +125,7 @@ void main() async {
       getConcreteNumberTriviaUsecase: useCase,
       getRandonNumberTriviaUsecase: useCase1,
     ),
-    act: (bloc) => bloc.add(GetRandomNumberTriviaEvent()),
+    act: (bloc) => bloc.add(const GetRandomNumberTriviaEvent()),
     wait: const Duration(milliseconds: 300),
     expect: () => [
       isA<NumberTriviaLoading>(),
@@ -146,7 +146,7 @@ void main() async {
       getConcreteNumberTriviaUsecase: useCase,
       getRandonNumberTriviaUsecase: useCase1,
     ),
-    act: (bloc) => bloc.add(GetRandomNumberTriviaEvent()),
+    act: (bloc) => bloc.add(const GetRandomNumberTriviaEvent()),
     wait: const Duration(milliseconds: 300),
     expect: () => [
       isA<NumberTriviaLoading>(),
@@ -167,7 +167,7 @@ void main() async {
       getConcreteNumberTriviaUsecase: useCase,
       getRandonNumberTriviaUsecase: useCase1,
     ),
-    act: (bloc) => bloc.add(GetRandomNumberTriviaEvent()),
+    act: (bloc) => bloc.add(const GetRandomNumberTriviaEvent()),
     wait: const Duration(milliseconds: 300),
     expect: () => [
       isA<NumberTriviaLoading>(),

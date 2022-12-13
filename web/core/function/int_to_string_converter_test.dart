@@ -11,7 +11,7 @@ void main() {
     final result2 = numberConverter.string2intConverter("-5");
     final result3 = numberConverter.string2intConverter("dsf");
 
-    expect(result1, Right(1));
+    expect(result1, const Right(1));
     expect(result2, Left(DataSourceError.invalidInput.getFailure()));
     expect(result3, Left(DataSourceError.invalidInput.getFailure()));
   });

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import '../../../../../core/error/error_handler.dart';
 import '../../../domain/entity/auth_entity.dart';
 
@@ -11,7 +13,7 @@ abstract class AuthLocalDataSource {
 }
 
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
-  Map<String, CachedItem> cacheMap = Map();
+  Map<String, CachedItem> cacheMap = {};
   @override
   Future<Auth> getAuthData() async {
     CachedItem? cachedItem = cacheMap[CACHE_AUTH_KEY];

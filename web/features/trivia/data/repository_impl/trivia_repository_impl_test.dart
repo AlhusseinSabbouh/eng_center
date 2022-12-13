@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:eng_center/config/platform/network_connection.dart';
 import 'package:eng_center/core/error/error_handler.dart';
@@ -10,8 +8,6 @@ import 'package:eng_center/features/trivia/data/repository_impl/trivia_repositor
 import 'package:eng_center/features/trivia/domain/repository/trivia_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-
-import '../../../../fexture/fexture_reader.dart';
 
 class TriviaLocalDataSourceMock extends Mock implements TriviaLocalDataSource {}
 
@@ -39,10 +35,12 @@ void main() {
   //   when(netWorkConnection.isConnected())
   //       .thenAnswer((realInvocation) async => true);
 
+  // ignore: prefer_const_declarations
   final tNumberTriviaModelRemote =
-      NumberTriviaModel(text: "from remote", number: 1);
+      const NumberTriviaModel(text: "from remote", number: 1);
+  // ignore: prefer_const_declarations
   final tNumberTriviaModelLocal =
-      NumberTriviaModel(text: "from local", number: 1);
+      const NumberTriviaModel(text: "from local", number: 1);
 
   group("when we online", () {
     test("we should get Failure when exception is gone", () async {

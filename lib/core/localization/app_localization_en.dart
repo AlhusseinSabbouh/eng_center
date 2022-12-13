@@ -4,7 +4,7 @@ import 'app_localization.dart';
 
 /// The translations for Spanish Castilian (`es`).
 class AppLocalizationsAr extends AppLocalizations {
-  AppLocalizationsAr([String locale = 'ar']) : super(locale) {}
+  AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   Map<String, dynamic> translate = jsonDecode(jsonString);
 

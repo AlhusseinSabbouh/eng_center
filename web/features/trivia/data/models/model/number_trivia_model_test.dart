@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../../fexture/fexture_reader.dart';
 
 void main() {
-  final tNumberTriviaModel = NumberTriviaModel(number: 1, text: "test Text");
+  const tNumberTriviaModel = NumberTriviaModel(number: 1, text: "test Text");
 
   group("from Json", () {
     test("should return a valid model when Json is an double", () async {
